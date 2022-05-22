@@ -1,10 +1,9 @@
-import email
 from mailbox import NoSuchMailboxError
 from pyexpat import model
 from tkinter import CASCADE
 from django.utils import timezone
 from django.db import models
-
+import uuid
 # Create your models here.
 categoria=[
     [0, "ninguno"],
@@ -14,7 +13,7 @@ categoria=[
     [4, "Accesorios"]
 ]
 class Producto(models.Model) :
-    serie_producto = models.CharField(max_length=30)
+    serie_producto = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     nombre = models.CharField(max_length=30)
     codigo = models.CharField(max_length=15)
     marca = models.CharField(max_length=30)
