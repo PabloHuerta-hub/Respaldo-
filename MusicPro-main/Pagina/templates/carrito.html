@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    </header>
+    <!-- end header section -->
+  </div>
+
+  <!-- product section -->
+  <body>
+      {% if request.session.carrito.items %}
+      {% for key, value in request.session.carrito.items %}
+      <tr>
+          <td>{{value.nombre}}</td>
+          <td>{{value.precio}}</td>
+          <td>{{value.acumulado}}
+              <a href="% url 'Add' value.producto_id %}" class="badge btn btn-dark badge-dark">+</a>
+              <a href="% url 'Sub' value.producto_id %}" class="badge btn btn-dark badge-dark">-</a>
+          </td>
+      </tr>
+      {% endfor %}
+      {% else %}
+      <tr>
+          <td colspan="3">
+              <div class="alert alert-danger text-center"> Sin Productos</div>
+          </td>
+      </tr>
+      {% endif %} 
+      <tr>
+          <th scope="row">total:</th>
+          <td colspan="2">$ {{total_carrito}}</td>
+      </tr>
+  </body>
+  <div class="row text-center">
+      <div class="col-6"><a href="{% url 'CLS' %}" class="btn btn-danger">Limpiar</a></div>
+      <div class="col-6"><a href="#" class="btn btn-succes">Guardar</a></div>
+  </div>
+ 
+  </section>
+
+  <!-- end product section -->
+
+  <!-- info section -->
+
+  
+
+</body>
+
+</html>
