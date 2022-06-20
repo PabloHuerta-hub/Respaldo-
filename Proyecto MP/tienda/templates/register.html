@@ -1,0 +1,178 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>MusicPro</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css'%}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css'%}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css'%}" rel="stylesheet" />
+</head>
+
+<body class="sub_page">
+   <!-------------------------------------------- Base HTML para las vista de registro falta subir los usuarios registrados a la base de datos users------------------------------------------>
+  {% include "headerClienteblack.html" %}
+  <!-- contact section -->
+
+  <section class="contact_section layout_padding">
+    <div class="container ">
+      <h2 style="color:black">
+        Registrate
+      </h2>
+    </div>
+    <div class="container">
+    <div class="login-form">
+      <div class="row">
+        <div class="col-md-8 col-lg-6 mx-auto">
+          <form action="" method="POST">
+            {% csrf_token %}
+            <div>
+              <input type="text"  class="form-control" placeholder="Nombre" />
+            </div>
+            <div>
+              <input type="email"  class="form-control" placeholder="Email" />
+            </div>
+            <div>
+              <input type="text"  class="form-control" placeholder="Número de telefono" />
+            </div>
+            <div>
+                <input type="password" class="form-control" placeholder="Contraseña" />
+            </div>
+            <div>
+                <input type="text"  class="form-control" placeholder="Comuna" />
+            </div>
+            <div>
+                <input type="text"  class="form-control" placeholder="Calle" />
+            </div>
+            <div class="d-flex justify-content-center">
+              <button>
+                Registrarse
+              </button>
+            </div>
+          </form>
+        </div>
+    </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end contact section -->
+
+
+
+  <!-- subscribe section -->
+
+ 
+  <section class="info_section layout_padding" style="margin-top:1cm">
+    <div class="container">
+      <div class="info_social-container">
+        <h5>
+          Siguenos
+        </h5>
+        <div class="info_social">
+          <div>
+            <a href="">
+              <img src="{% static 'images/facebook-logo-button.png'%}" alt="">
+            </a>
+          </div>
+          <div>
+            <a href="">
+              <img src="{% static 'images/twitter-logo-button.png'%}" alt="">
+            </a>
+          </div>
+          <div>
+            <a href="">
+              <img src="{% static 'images/linkedin.png'%}" alt="">
+            </a>
+          </div>
+          <div>
+            <a href="">
+              <img src="{% static 'images/instagram.png'%}" alt="">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        
+        <div class="col-md-2 offset-lg-1">
+          <h6>
+            Menu
+          </h6>
+          <ul>
+            <li class=" active">
+              <a class="" href="{% url 'Index' %}">Inicio <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="">
+              <a class="" href="{% url 'Product'%}">Productos </a>
+            </li>
+            <li class="">
+              <a class="" href="{% url 'Blog'%}">Novedades </a>
+            </li>
+            <li class="">
+              <a class="" href="{% url 'Contactanos'%}">Contactanos</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="col-md-4 col-lg-3">
+          <h6>
+            Contactanos
+          </h6>
+          <div class="info_link-box">
+            <a href="">
+              <img src="{% static 'images/location-white.png'%}" alt="">
+              <span> No.243,Calle alferez real </span>
+            </a>
+            <a href="">
+              <img src="{% static 'images/call-white.png'%}" alt="">
+              <span>+56 53214856</span>
+            </a>
+            <a href="">
+              <img src="{% static 'images/mail-white.png'%}" alt="">
+              <span> MusicPro@gmail.com</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+<!-- end product section -->
+
+<!-- footer section -->
+<footer class="container-fluid footer_section ">
+  <div class="container">
+    <p>
+      &copy; <span id="displayYear"></span> All Rights Reserved. Design by
+      <a>Hidalgo, Huerta, Orellana and Rojas</a>
+    </p>
+  </div>
+</footer>
+<!-- end  footer section -->
+
+  <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/bootstrap.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/custom.js'%}"></script>
+
+
+</html>

@@ -1,0 +1,213 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>MusicPro</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css'%}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css'%}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css'%}" rel="stylesheet" />
+</head>
+
+<body>
+<!-------------------------------------------- Login ------------------------------------------>
+<!-------------------------------------------- Los <p> se pueden sacar solo son una prueba de que mostraba bien el rol------------------------------------------>
+<!-------------------------------------------- Se hicieron base html para cada rol------------------------------------------>
+
+  {%if user.is_authenticated%} 
+    {% for group in request.user.groups.all %}
+    {% if group.name == 'Bodeguero' %}
+    {% include "headerBodeguero.html" %}
+    <p style="color:white">Welcome, {{request.user.groups.all}}. <br/>
+    {% endif %}
+    {% if group.name == 'Vendedor' %}
+    {% include "headerVendedor.html" %}
+    <p style="color:white">Welcome, {{request.user.groups.all}}. <br/>
+    {% endif %}
+    {% if group.name == 'Contador' %}
+    {% include "headerContador.html" %}
+    <p style="color:white">Welcome, {{request.user.groups.all}}. <br/>
+    {% endif %}
+    {% if group.name == 'Cliente' %}
+    {% include "headerClienteblack.html" %}
+    <p style="color:white">Welcome, {{request.user.groups.all}}. <br/>
+    {% endif %}
+    {% if group.name == 'Administrador' %}
+    {% include "headerClienteblack.html" %}
+    <p style="color:white">Welcome, {{request.user.groups.all}}. <br/>
+    {% endif %}
+    {% endfor %}
+  {%else%}
+    {% include "headerIndex.html" %}
+    
+  {%endif%}
+
+<!-------------------------------------------- End Login ------------------------------------------>
+    <!-- slider section -->
+    <section class="slider_section">
+      <div class="side-img">
+        <img src="{% static 'img/side-img.png'%}" alt="">
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="detail-box">
+              <h2>
+                MUSIC
+              </h2>
+              <h1>
+                P<span>R</span>O
+              </h1>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="img-box">
+                    <img src="{% static 'img/slide1.jpg'%}" alt="" width="700px" height="300px">
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="img-box">
+                    <img src="{% static 'img/slide2.png'%}" alt="" width="700px" height="300px">
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="img-box">
+                    <img src="{% static 'img/slide3.jpg'%}" alt="" width="700px" height="300px">
+                  </div>
+                </div>
+              </div>
+              <div class="carousel_btn-container" style="justify-content: center">
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end slider section -->
+  </div>
+  <section class="info_section layout_padding" >
+    <div class="container">
+      <div class="info_social-container">
+        <h5>
+          Siguenos
+        </h5>
+        <div class="info_social">
+          <div>
+            <a href="">
+              <img src="{% static 'images/facebook-logo-button.png'%}" alt="">
+            </a>
+          </div>
+          <div>
+            <a href="">
+              <img src="{% static 'images/twitter-logo-button.png'%}" alt="">
+            </a>
+          </div>
+          <div>
+            <a href="">
+              <img src="{% static 'images/linkedin.png'%}" alt="">
+            </a>
+          </div>
+          <div>
+            <a href="">
+              <img src="{% static 'images/instagram.png'%}" alt="">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        
+        <div class="col-md-2 offset-lg-1">
+          <h6>
+            Menu
+          </h6>
+          <ul>
+            <li class=" active">
+              <a class="" href="{% url 'Index' %}">Inicio <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="">
+              <a class="" href="{% url 'Product'%}">Productos </a>
+            </li>
+            <li class="">
+              <a class="" href="{% url 'Blog'%}">Novedades </a>
+            </li>
+            <li class="">
+              <a class="" href="{% url 'Contactanos'%}">Contactanos</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="col-md-4 col-lg-3">
+          <h6>
+            Contactanos
+          </h6>
+          <div class="info_link-box">
+            <a href="">
+              <img src="{% static 'images/location-white.png'%}" alt="">
+              <span> No.243,Calle alferez real </span>
+            </a>
+            <a href="">
+              <img src="{% static 'images/call-white.png'%}" alt="">
+              <span>+56 53214856</span>
+            </a>
+            <a href="">
+              <img src="{% static 'images/mail-white.png'%}" alt="">
+              <span> MusicPro@gmail.com</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+<!-- end product section -->
+
+<!-- footer section -->
+<footer class="container-fluid footer_section ">
+  <div class="container">
+    <p>
+      &copy; <span id="displayYear"></span> All Rights Reserved. Design by
+      <a>Hidalgo, Huerta, Orellana and Rojas</a>
+    </p>
+  </div>
+</footer>
+<!-- end  footer section -->
+
+
+  <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/bootstrap.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/custom.js'%}"></script>
+
+
+</html>

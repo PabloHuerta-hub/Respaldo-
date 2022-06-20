@@ -1,0 +1,160 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>MusicPro</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css'%}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css'%}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css'%}" rel="stylesheet" />
+</head>
+
+<body class="sub_page">
+  {% include "headerClienteblack.html" %}
+
+  <!-- product section -->
+
+  <section class="product_section layout_padding">
+    <div class="container">
+      <div class="heading_container" style="justify-content: center; margin-bottom: 30px">
+        <h2>
+          Nuestros productos
+        </h2>
+      </div>
+      <div class="product_container">
+        {% for productos in productos %}
+        <div class="box">
+          <div class="img-box" style="width: 250px; height: 250px;">
+            <img src="{{productos.imagen}}" alt="">
+          </div> 
+          <div class="detail-box" style="margin-top: 20px">
+            <h5>
+              {{ productos.nombre }}
+            </h5>
+            <h4>
+              <span>$</span>{{ productos.precio }}
+            </h4>
+            <a href="{% url 'Add' productos.id %}">
+              Añadir al carrito
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="info_section layout_padding" style="margin-top:1cm">
+    <div class="container">
+      <div class="info_social-container">
+        <h5>
+          Siguenos
+        </h5>
+        <div class="info_social">
+          <div>
+            <a href="">
+              <img src="{% static 'images/facebook-logo-button.png'%}" alt="">
+            </a>
+          </div>
+          <div>
+            <a href="">
+              <img src="{% static 'images/twitter-logo-button.png'%}" alt="">
+            </a>
+          </div>
+          <div>
+            <a href="">
+              <img src="{% static 'images/linkedin.png'%}" alt="">
+            </a>
+          </div>
+          <div>
+            <a href="">
+              <img src="{% static 'images/instagram.png'%}" alt="">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        
+        <div class="col-md-2 offset-lg-1">
+          <h6>
+            Menu
+          </h6>
+          <ul>
+            <li class=" active">
+              <a class="" href="{% url 'Index' %}">Inicio <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="">
+              <a class="" href="{% url 'Product'%}">Productos </a>
+            </li>
+            <li class="">
+              <a class="" href="{% url 'Blog'%}">Novedades </a>
+            </li>
+            <li class="">
+              <a class="" href="{% url 'Contactanos'%}">Contactanos</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="col-md-4 col-lg-3">
+          <h6>
+            Contactanos
+          </h6>
+          <div class="info_link-box">
+            <a href="">
+              <img src="{% static 'images/location-white.png'%}" alt="">
+              <span> No.243,Calle alferez real </span>
+            </a>
+            <a href="">
+              <img src="{% static 'images/call-white.png'%}" alt="">
+              <span>+56 53214856</span>
+            </a>
+            <a href="">
+              <img src="{% static 'images/mail-white.png'%}" alt="">
+              <span> MusicPro@gmail.com</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+  <!-- end product section -->
+
+  <!-- footer section -->
+  <footer class="container-fluid footer_section ">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved. Design by
+        <a>Hidalgo, Huerta, Orellana and Rojas</a>
+      </p>
+    </div>
+  </footer>
+  <!-- end  footer section -->
+
+
+  <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/bootstrap.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/custom.js'%}"></script>
+
+
+
+</html>
