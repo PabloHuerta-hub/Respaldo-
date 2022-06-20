@@ -23,6 +23,7 @@ LOGINS:
 - Contador: Contador pass: Pelicanoprueba1
 - Bodeguero: Bodeguero pass: Pelicanoprueba1
 - Vendedor: Vendedor pass: Pelicanoprueba1
-Soluciones: Soluciones pass: Pelicanoprueba1
+
+POSIBLES PROBLEMAS:
 =
 - en caso de problemas con la base de datos ejecutar: python manage.py migrate --run-syncdb
