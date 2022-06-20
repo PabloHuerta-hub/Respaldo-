@@ -18,11 +18,11 @@ URLS:
 
 LOGINS:
 =
-cliente: Cliente pass: Pelicanoprueba1
-Administrador:  Admin pass: 123 o 1234 no me acuerdo
-Contador: Contador pass: Pelicanoprueba1
-Bodeguero: Bodeguero pass: Pelicanoprueba1
-Vendedor: Vendedor pass: Pelicanoprueba1
-Soluciones: Soluciones pass: Pelicanoprueba1
+-cliente: Cliente pass: Pelicanoprueba1
+-Administrador:  Admin pass: 123 o 1234 no me acuerdo
+-Contador: Contador pass: Pelicanoprueba1
+-Bodeguero: Bodeguero pass: Pelicanoprueba1
+-Vendedor: Vendedor pass: Pelicanoprueba1
+-Soluciones: Soluciones pass: Pelicanoprueba1
 =
 - en caso de problemas con la base de datos ejecutar: python manage.py migrate --run-syncdb
