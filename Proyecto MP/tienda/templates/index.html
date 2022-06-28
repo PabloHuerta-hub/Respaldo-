@@ -56,6 +56,7 @@
     {% if group.name == 'Cliente' %}
     {% include "headerClienteblack.html" %}
     <p style="color:white">Welcome, {{request.user.groups.all}}. <br/>
+    <p style="color:white">URL of this page: {{ request.get_full_path }}</p>
     {% endif %}
   <!--------------------------------------------Usuario Administrador (No necesario) ------------------------------------------>
     {% if group.name == 'Administrador' %}
@@ -66,7 +67,6 @@
   <!-------------------------------------------- Usuario deslogeado ------------------------------------------>
   {%else%}
     {% include "headerIndex.html" %}
-    
   {%endif%}
 
 <!-------------------------------------------- End Login ------------------------------------------>
