@@ -32,29 +32,33 @@
 <!-------------------------------------------- Los <p> se pueden sacar solo son una prueba de que mostraba bien el rol------------------------------------------>
 <!-------------------------------------------- Se hicieron base html para cada rol------------------------------------------>
 
-  {%if user.is_authenticated%} 
+
+<!-------------------------------------------- Se verifica si el usuario esta logeado------------------------------------------>
+  {%if request.user.is_authenticated%} 
+  <!-------------------------------------------- Se rescatan los grupos ------------------------------------------>
     {% for group in request.user.groups.all %}
+  <!-------------------------------------------- Usuario Bodeguero ------------------------------------------>
     {% if group.name == 'Bodeguero' %}
     {% include "headerBodeguero.html" %}
-    <p style="color:white">Welcome, {{request.user.groups.all}}. <br/>
     {% endif %}
+  <!-------------------------------------------- Usuario Vendedor ------------------------------------------>
     {% if group.name == 'Vendedor' %}
     {% include "headerVendedor.html" %}
-    <p style="color:white">Welcome, {{request.user.groups.all}}. <br/>
     {% endif %}
+  <!-------------------------------------------- Usuario Contador ------------------------------------------>
     {% if group.name == 'Contador' %}
     {% include "headerContador.html" %}
-    <p style="color:white">Welcome, {{request.user.groups.all}}. <br/>
     {% endif %}
+  <!-------------------------------------------- Usuario Cliente------------------------------------------>
     {% if group.name == 'Cliente' %}
     {% include "headerClienteblack.html" %}
-    <p style="color:white">Welcome, {{request.user.groups.all}}. <br/>
     {% endif %}
+  <!--------------------------------------------Usuario Administrador (No necesario) ------------------------------------------>
     {% if group.name == 'Administrador' %}
     {% include "headerClienteblack.html" %}
-    <p style="color:white">Welcome, {{request.user.groups.all}}. <br/>
     {% endif %}
     {% endfor %}
+  <!-------------------------------------------- Usuario deslogeado ------------------------------------------>
   {%else%}
     {% include "headerIndex.html" %}
     
@@ -198,7 +202,7 @@
   <div class="container">
     <p>
       &copy; <span id="displayYear"></span> All Rights Reserved. Design by
-      <a>Hidalgo, Huerta, Orellana and Rojas</a>
+      <a>Hidalgo, Huerta, Orellana and Rojas y {{user.username}}</a>
     </p>
   </div>
 </footer>

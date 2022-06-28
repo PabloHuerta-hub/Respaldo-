@@ -29,7 +29,7 @@
 
 <body class="sub_page">
    <!-------------------------------------------- Base HTML para las vista de registro falta subir los usuarios registrados a la base de datos users------------------------------------------>
-  {% include "headerClienteblack.html" %}
+  {% include "headerIndex.html" %}
   <!-- contact section -->
 
   <section class="contact_section layout_padding">
@@ -42,28 +42,16 @@
     <div class="login-form">
       <div class="row">
         <div class="col-md-8 col-lg-6 mx-auto">
-          <form action="" method="POST">
+          <form action="" method="post" style="color: black;">
             {% csrf_token %}
-            <div>
-              <input type="text"  class="form-control" placeholder="Nombre" />
-            </div>
-            <div>
-              <input type="email"  class="form-control" placeholder="Email" />
-            </div>
-            <div>
-              <input type="text"  class="form-control" placeholder="Número de telefono" />
-            </div>
-            <div>
-                <input type="password" class="form-control" placeholder="Contraseña" />
-            </div>
-            <div>
-                <input type="text"  class="form-control" placeholder="Comuna" />
-            </div>
-            <div>
-                <input type="text"  class="form-control" placeholder="Calle" />
-            </div>
+            {% for field in registro%}
+              <p>
+                {{field.label_tag}}
+                {{field}}
+              </p>
+            {% endfor %}
             <div class="d-flex justify-content-center">
-              <button>
+              <button type="submit">
                 Registrarse
               </button>
             </div>

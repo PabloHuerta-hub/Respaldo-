@@ -20,7 +20,7 @@ from django.conf import settings
 from django.contrib.auth.views import LoginView, LogoutView
 from MusicPro.appApi import views
 from django.conf.urls.static import static
-from tienda.views import product,index,contact,blog,carrito,  agregar_producto, eliminar_producto,sumar_producto, limpiar_carrito, restar_producto,contador,bodeguero,vendedor,registrarse
+from tienda.views import product,index,contact,blog,carrito,  agregar_producto, eliminar_producto,sumar_producto, limpiar_carrito, restar_producto,contador,bodeguero,vendedor,loginPage,registrarse
 router = routers.DefaultRouter()
 #router.register(r'users', views.UserViewSet)
 #router.register(r'groups', views.GroupViewSet)
