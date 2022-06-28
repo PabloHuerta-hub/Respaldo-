@@ -6,6 +6,12 @@ from django import forms
 
 
 class RegistroUsuarios(UserCreationForm):
+    class Meta:
+        model = Usuarios
+        fields = ['username','password1','password2']
+        
+        
+class Clientes(UserCreationForm):
     email=forms.EmailField(max_length=60)
     class Meta:
         model = Usuarios

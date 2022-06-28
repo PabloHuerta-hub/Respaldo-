@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 import requests
-from tienda.forms import RegistroUsuarios
+from tienda.forms import RegistroUsuarios,Clientes
 from django.contrib.auth.models import Group
 # Create your views here.
 from producto.models import Producto
@@ -32,7 +32,7 @@ def vendedor(request):
 def registrarse(request):
     context={}
     if request.POST:
-        form=RegistroUsuarios(request.POST)
+        form=Clientes(request.POST)
         #se valida el formulario
         if form.is_valid():
             user= form.save(commit=False)
@@ -47,7 +47,7 @@ def registrarse(request):
             context['registro']=form
     else:
         #en caso que no ha metodo post se muestra el formulario
-        form=RegistroUsuarios()
+        form=Clientes()
         context['registro']=form
     return render(request,'register.html',context)
 

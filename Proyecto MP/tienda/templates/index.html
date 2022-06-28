@@ -40,22 +40,27 @@
   <!-------------------------------------------- Usuario Bodeguero ------------------------------------------>
     {% if group.name == 'Bodeguero' %}
     {% include "headerBodeguero.html" %}
+    <p style="color:white">Welcome, {{request.user.groups.all}}. <br/>
     {% endif %}
   <!-------------------------------------------- Usuario Vendedor ------------------------------------------>
     {% if group.name == 'Vendedor' %}
     {% include "headerVendedor.html" %}
+    <p style="color:white">Welcome, {{request.user.groups.all}}. <br/>
     {% endif %}
   <!-------------------------------------------- Usuario Contador ------------------------------------------>
     {% if group.name == 'Contador' %}
     {% include "headerContador.html" %}
+    <p style="color:white">Welcome, {{request.user.groups.all}}. <br/>
     {% endif %}
   <!-------------------------------------------- Usuario Cliente------------------------------------------>
     {% if group.name == 'Cliente' %}
     {% include "headerClienteblack.html" %}
+    <p style="color:white">Welcome, {{request.user.groups.all}}. <br/>
     {% endif %}
   <!--------------------------------------------Usuario Administrador (No necesario) ------------------------------------------>
     {% if group.name == 'Administrador' %}
     {% include "headerClienteblack.html" %}
+    <p style="color:white">Welcome, {{request.user.groups.all}}. <br/>
     {% endif %}
     {% endfor %}
   <!-------------------------------------------- Usuario deslogeado ------------------------------------------>
