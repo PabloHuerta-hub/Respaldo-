@@ -27,8 +27,13 @@
 </head>
 
 <body class="sub_page">
+  {%if request.user.is_authenticated%} 
   {% include "headerClienteblack.html" %}
-
+  <p style="color:black;">Welcome, {{request.user.groups.all}}. <br/>
+{%else%}
+{% include "headerIndex.html" %}
+<p style="color:black">Welcome, {{request.user.groups.all}}. <br/>
+{%endif%}
   <!-- product section -->
 
   <section class="product_section layout_padding">

@@ -26,42 +26,13 @@
   <link href="{% static 'css/responsive.css'%}" rel="stylesheet" />
   </head>
   <body class="sub_page">
-    <div class="hero_area ">
-      <!-- header section strats -->
-      <header class="header_section">
-        <div class="container-fluid">
-          <nav class="navbar navbar-expand-lg custom_nav-container">
-            <a class="navbar-brand" href="{% url 'Index'%}">
-              <span>
-                MusicPro
-              </span>
-            </a>
-            <div class="" id="">  
-              <div class="custom_menu-btn">
-                <button onclick="openNav()">
-                  <span class="s-1">
-  
-                  </span>
-                  <span class="s-2">
-  
-                  </span>
-                  <span class="s-3">
-  
-                  </span>
-                </button>
-              </div>
-              <div id="myNav" class="overlay">
-                <div class="overlay-content">
-                  <a href="{% url 'Index'%}">Inicio</a>
-                  <a href="{% url 'Product'%}">Productos</a>
-                  <a href="{% url 'Blog'%}">Novedades</a>
-                  <a href="{% url 'Contactanos'%}">Contáctanos</a>
-                </div>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </header>
+    {%if request.user.is_authenticated%} 
+    {% include "headerClienteblack.html" %}
+    <p style="color:black;">Welcome, {{request.user.groups.all}}. <br/>
+  {%else%}
+  {% include "headerIndex.html" %}
+  <p style="color:black">Welcome, {{request.user.groups.all}}. <br/>
+  {%endif%}
       <!-- end header section -->
     </div>
     <section class="contact_section layout_padding">

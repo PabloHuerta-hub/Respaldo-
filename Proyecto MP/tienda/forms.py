@@ -1,7 +1,5 @@
-from django.contrib import admin
 from tienda.models import Usuarios
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from django import forms
 
 
