@@ -23,6 +23,7 @@ LOGINS:
 - Contador: Contador pass: Pelicanoprueba1
 - Bodeguero: Bodeguero pass: Pelicanoprueba1
 - Vendedor: Vendedor pass: Pelicanoprueba1
+- Falta crearlos y limpiar la base de datos de usuarios prueba 
 
 POSIBLES PROBLEMAS:
 =
