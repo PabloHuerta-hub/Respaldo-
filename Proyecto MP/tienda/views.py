@@ -69,7 +69,7 @@ def loginPage(request):
 
 def product(request):
     url = 'http://127.0.0.1:8000/api/productos/' 
-    response = requests.get(url, auth = ('admin', '1234'))
+    response = requests.get(url, auth = ('admin', '123'))
     data = response.json()
     productos = {'productos': data}
     return render(request,'product.html', productos)
