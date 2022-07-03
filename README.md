@@ -18,13 +18,17 @@ URLS:
 
 LOGINS:
 =
-- cliente: Cliente pass: Pelicanoprueba1
-- Administrador:  Admin pass: 123 o 1234 no me acuerdo
-- Contador: Contador pass: Pelicanoprueba1
-- Bodeguero: Bodeguero pass: Pelicanoprueba1
-- Vendedor: Vendedor pass: Pelicanoprueba1
+- cliente: cliente@gmail.com pass: Pelicanoprueba1 (hasta el momento no se si esta agregado el gmail)
+- Administrador:  admin@gmail.com pass: 123 
+- Contador: contador@gmail.com pass: Pelicanoprueba1
+- Bodeguero:bodeguero@gmail.com pass: Pelicanoprueba1
+- Vendedor: vendedor@gmail.com pass: Pelicanoprueba1
 - Falta crearlos y limpiar la base de datos de usuarios prueba 
 
 POSIBLES PROBLEMAS:
 =
 - en caso de problemas con la base de datos ejecutar: python manage.py migrate --run-syncdb
+
+CAMBIOS:
+=
+- Ahora la api recibe el gmail como credencial al igual que el inicio de sesion ahora solicita el email
