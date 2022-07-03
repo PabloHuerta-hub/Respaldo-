@@ -34,34 +34,9 @@
 
 
 <!-------------------------------------------- Se verifica si el usuario esta logeado------------------------------------------>
-  {%if request.user.is_authenticated%} 
-  <!-------------------------------------------- Se rescatan los grupos ------------------------------------------>
-    {% for group in request.user.groups.all %}
-  <!-------------------------------------------- Usuario Bodeguero ------------------------------------------>
-    {% if group.name == 'Bodeguero' %}
-    {% include "headerBodeguero.html" %}
-    {% endif %}
-  <!-------------------------------------------- Usuario Vendedor ------------------------------------------>
-    {% if group.name == 'Vendedor' %}
-    {% include "headerVendedor.html" %}
-    {% endif %}
-  <!-------------------------------------------- Usuario Contador ------------------------------------------>
-    {% if group.name == 'Contador' %}
-    {% include "headerContador.html" %}
-    {% endif %}
-  <!-------------------------------------------- Usuario Cliente------------------------------------------>
-    {% if group.name == 'Cliente' %}
-    {% include "headerClienteblack.html" %}
-    {% endif %}
-  <!--------------------------------------------Usuario Administrador (No necesario) ------------------------------------------>
-    {% if group.name == 'Administrador' %}
-    {% include "headerClienteblack.html" %}
-    {% endif %}
-    {% endfor %}
-  <!-------------------------------------------- Usuario deslogeado ------------------------------------------>
-  {%else%}
-    {% include "headerIndex.html" %}
-  {%endif%}
+  
+    {% include "Baseheader.html" %}
+
 
 <!-------------------------------------------- End Login ------------------------------------------>
     <!-- slider section -->

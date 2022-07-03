@@ -27,11 +27,7 @@
 </head>
 
 <body class="sub_page">
-  {%if request.user.is_authenticated%} 
-  {% include "headerClienteblack.html" %}
-{%else%}
-{% include "headerIndex.html" %}
-{%endif%}
+  {% include "Baseheader.html" %}
   <!-- product section -->
 
   <section class="product_section layout_padding">
