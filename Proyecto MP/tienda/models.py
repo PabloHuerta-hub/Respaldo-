@@ -9,3 +9,6 @@ class Usuarios(AbstractUser):
     Comuna = models.CharField('Address',max_length=255,blank=True,null=True)
     Calle = models.CharField('calle',max_length=255,blank=True,null=True)
     cellphone = models.CharField('Cellphone',max_length=100,blank=True,null=True)
+    email=models.CharField('Email',max_length=100,unique=True,null=True)
+    REQUIRED_FIELDS = ['username']
+    USERNAME_FIELD = "email"
