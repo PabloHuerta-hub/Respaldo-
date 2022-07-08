@@ -32,3 +32,4 @@ POSIBLES PROBLEMAS:
 CAMBIOS:
 =
 - Ahora la api recibe el gmail como credencial al igual que el inicio de sesion ahora solicita el email
+- Ahora no se puede acceder a las urls desde cualquier vista
