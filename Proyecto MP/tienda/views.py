@@ -9,25 +9,84 @@ from producto.models import Producto
 from producto.Carrito import Carrito
 
 def index(request):
-    return render(request,'index.html')
+    return render(request,'Inicio/index.html')
 
 
 def contact(request):
-    return render(request,'contact.html')
+    return render(request,'Inicio/contact.html')
 
 
 def blog(request):
-    return render(request,'blog.html')
+    return render(request,'Inicio/blog.html')
+#Vista contador
+def entregascontador(request):
+    if request.user.is_authenticated:
+        for group in request.user.groups.all():
+            if group.name == 'Contador':
+                return render(request,'Contador/entregascontador.html')
+            else:
+                return redirect('login')
+    else:
+        return redirect('Index')
+def pagoscontador(request):
+    if request.user.is_authenticated:
+        for group in request.user.groups.all():
+            if group.name == 'Contador':
+                return render(request,'Contador/pagoscontador.html')
+            else:
+                return redirect('login')
+    else:
+        return redirect('Index')
+#Vista bodeguero
+def productobodeguero(request): 
+    if request.user.is_authenticated:
+        for group in request.user.groups.all():
+            if group.name == 'Bodeguero':
+                return render(request,'Bodeguero/productosbodeguero.html')
+            else:
+                return redirect('login')
+    else:
+        return redirect('Index')
+    
+def ordenesbodeguero(request):
+    if request.user.is_authenticated:
+        for group in request.user.groups.all():
+            if group.name == 'Bodeguero':
+                return render(request,'Bodeguero/ordenesbodeguero.html')
+            else:
+                return redirect('login')
+    else:
+        return redirect('Index') 
+#Vista vendedor
+def productovendedor(request):
+    if request.user.is_authenticated:
+        for group in request.user.groups.all():
+            if group.name == 'Vendedor':
+                return render(request,'Vendedor/productosvendedor.html')
+            else:
+                return redirect('login')
+    else:
+        return redirect('Index')
 
-def contador(request):
-    return render(request,'contador.html')
-
-def bodeguero(request):
-    return render(request,'bodeguero.html')
-
-def vendedor(request):
-    return render(request,'vendedor.html')
-
+def pedidosvendedor(request):
+    if request.user.is_authenticated:
+        for group in request.user.groups.all():
+            if group.name == 'Vendedor':
+                return render(request,'Vendedor/pedidosvendedor.html')
+            else:
+                return redirect('login')
+    else:
+        return redirect('Index')
+    
+def ordenesvendedor(request):
+    if request.user.is_authenticated:
+        for group in request.user.groups.all():
+            if group.name == 'Vendedor':
+                return render(request,'Vendedor/ordenesvendedor.html')
+            else:
+                return redirect('login')
+    else:
+        return redirect('Index')
 #Registro de clientes los usuarios staff deben ser creados manualmente y se les debe asignar un rol 
 def registrarse(request):
     context={}
@@ -52,34 +111,20 @@ def registrarse(request):
     return render(request,'register.html',context)
 
 
-def loginPage(request):
-    if request.method == "POST":
-        #se reciben los datos del formulario
-        username = request.POST.get("username")
-        password = request.POST.get("password")
-        #se autentica al usuario
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('Index')
-        else:
-            messages.info(request, 'Username or Password is incorrect')
-    context = {}
-    return render(request,'login.html', context)
 
 def product(request):
     url = 'http://127.0.0.1:8000/api/productos/' 
     response = requests.get(url, auth = ('admin@gmail.com', '123'))
     data = response.json()
     productos = {'productos': data}
-    return render(request,'product.html', productos)
+    return render(request,'Inicio/product.html', productos)
 
 def carrito(request):
     url = 'http://127.0.0.1:8000/api/productos/'
     response = requests.get(url, auth = ('admin@gmail.com', '1234'))
     data = response.json()
     productos = {'productos': data}
-    return render(request,'carrito.html', productos)
+    return render(request,'Inicio/carrito.html', productos)
 
 
 def agregar_producto(request, producto_id):

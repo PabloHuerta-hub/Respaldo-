@@ -40,6 +40,7 @@
 
 <!-------------------------------------------- End Login ------------------------------------------>
     <!-- slider section -->
+  
     <section class="slider_section">
       <div class="side-img">
         <img src="{% static 'img/side-img.png'%}" alt="">
@@ -145,26 +146,56 @@
             </li>
           </ul>
         </div>
-        
-        <div class="col-md-4 col-lg-3">
-          <h6>
-            Contactanos
-          </h6>
-          <div class="info_link-box">
-            <a href="">
-              <img src="{% static 'images/location-white.png'%}" alt="">
-              <span> No.243,Calle alferez real </span>
-            </a>
-            <a href="">
-              <img src="{% static 'images/call-white.png'%}" alt="">
-              <span>+56 53214856</span>
-            </a>
-            <a href="">
-              <img src="{% static 'images/mail-white.png'%}" alt="">
-              <span> MusicPro@gmail.com</span>
-            </a>
+        {%if request.user.is_authenticated%} 
+          {% for group in request.user.groups.all %}
+            {% if group.name == 'Cliente' %}
+            <div class="col-md-4 col-lg-3">
+              <h6>
+                Contactanos
+              </h6>
+              <div class="info_link-box">
+                <a href="">
+                  <img src="{% static 'images/location-white.png'%}" alt="">
+                  <span> No.243,Calle alferez real </span>
+                </a>
+                <a href="">
+                  <img src="{% static 'images/call-white.png'%}" alt="">
+                  <span>+56 53214856</span>
+                </a>
+                <a href="">
+                  <img src="{% static 'images/mail-white.png'%}" alt="">
+                  <span> MusicPro@gmail.com</span>
+                </a>
+              </div>
+            </div>
+            {% endif %}
+            {% if group.name == 'Contador' %}
+            {% endif %}
+            {% if group.name == 'Vendedor' %}
+            {% endif %}
+
+          {%endfor%}
+        {% else %}
+          <div class="col-md-4 col-lg-3">
+            <h6>
+              Contactanos
+            </h6>
+            <div class="info_link-box">
+              <a href="">
+                <img src="{% static 'images/location-white.png'%}" alt="">
+                <span> No.243,Calle alferez real </span>
+              </a>
+              <a href="">
+                <img src="{% static 'images/call-white.png'%}" alt="">
+                <span>+56 53214856</span>
+              </a>
+              <a href="">
+                <img src="{% static 'images/mail-white.png'%}" alt="">
+                <span> MusicPro@gmail.com</span>
+              </a>
+            </div>
           </div>
-        </div>
+          {% endif %}
       </div>
     </div>
   </section>
