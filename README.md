@@ -18,11 +18,11 @@ URLS:
 
 LOGINS:
 =
-- cliente: cliente@gmail.com pass: Pelicanoprueba1 (hasta el momento no se si esta agregado el gmail)
+- cliente: cliente@gmail.com pass: pelicanoprueba (hasta el momento no se si esta agregado el gmail)
 - Administrador:  admin@gmail.com pass: 123 
-- Contador: contador@gmail.com pass: Pelicanoprueba1
-- Bodeguero:bodeguero@gmail.com pass: Pelicanoprueba1
-- Vendedor: vendedor@gmail.com pass: Pelicanoprueba1
+- Contador: contador@gmail.com pass: pelicanoprueba
+- Bodeguero:bodeguero@gmail.com pass: pelicanoprueba
+- Vendedor: vendedor@gmail.com pass: pelicanoprueba
 - Falta crearlos y limpiar la base de datos de usuarios prueba 
 
 POSIBLES PROBLEMAS:
