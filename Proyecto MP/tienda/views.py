@@ -108,7 +108,7 @@ def registrarse(request):
         #en caso que no ha metodo post se muestra el formulario
         form=Clientes()
         context['registro']=form
-    return render(request,'register.html',context)
+    return render(request,'Inicio/register.html',context)
 
 
 

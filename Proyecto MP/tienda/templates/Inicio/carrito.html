@@ -27,6 +27,11 @@
   </head>
   <body class="sub_page">
     {% include "Baseheader.html" %}
+    {%if request.user.is_authenticated%} 
+      <p style="color:black;  text-align: center; font-size: 25px;font-weight: bold;">Bienvenido <br/>
+    {%else%}
+      <p style="color:black;  text-align: center; font-size: 25px;font-weight: bold;">Inicia sesión o regístrate para obtener beneficios <br/>
+    {%endif%}
       <!-- end header section -->
     </div>
     <section class="contact_section layout_padding">
