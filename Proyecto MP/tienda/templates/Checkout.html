@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>MusicPro</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css'%}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css'%}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css'%}" rel="stylesheet" />
+</head>
+<body class="sub_page">
+  {% include "Baseheader.html" %}
+  <!-- product section -->
+<!-- Se crea un script de js para llamar al sdk de paypal, luego se coloca el la key del cliente junto con su divisa -->
+<script src="https://www.paypal.com/sdk/js?client-id=AVZupC86YnGnWrTCqh2EmzL1Ll18cx4sNkVkewSVSISj4kmT6XttDALrPMOhDoT09F-zFpOCgfn1RB9K&currency=USD"></script>
+<div class="container" style="justify-content: center; margin-top: 250px; margin-left: 350px;">
+<div id="paypal-button-container"></div>
+</div>
+<!-- Se crea un script para los botones de paypal y crear la orden -->
+<script>
+  paypal.Buttons({
+    // Crea la configuracion del pago una vez se presiona el boton
+    createOrder: (data, actions) => {
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: '{{total_carrito_dolar}}' 
+          }
+        }]
+      });
+    },
+    // Finaliza la transaccion una vez se aprueba el pago
+    // en onapprove captura los datos
+    onApprove: (data, actions) => {
+      return actions.order.capture().then(function(orderData) {
+        console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+        const transaction = orderData.purchase_units[0].payments.captures[0];
+        alert(`Transaction ${transaction.status}: ${transaction.id}\n\nMira la consola para mas detalles`);
+
+      });
+    }
+  }).render('#paypal-button-container');
+</script>
+
+</body>

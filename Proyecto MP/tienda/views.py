@@ -155,3 +155,7 @@ def limpiar_carrito(request):
     carrito = Carrito(request)
     carrito.limpiar()
     return redirect("carrito")
+
+def Checkout(request):
+    template_name="Checkout.html"
+    return render(request,template_name)

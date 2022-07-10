@@ -25,6 +25,11 @@ LOGINS:
 - Vendedor: vendedor@gmail.com pass: pelicanoprueba
 - Falta crearlos y limpiar la base de datos de usuarios prueba 
 
+Paypal:
+Ingresar a www.sandbox.paypal.com
+correo: ClienteJhonDoe@personal.example.com
+contraseña: pelicanoprueba123
+
 POSIBLES PROBLEMAS:
 =
 - en caso de problemas con la base de datos ejecutar: python manage.py migrate --run-syncdb

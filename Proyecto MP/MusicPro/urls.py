@@ -20,7 +20,7 @@ from django.conf import settings
 from django.contrib.auth.views import LoginView, LogoutView
 from MusicPro.appApi import views
 from django.conf.urls.static import static
-from tienda.views import product,index,contact,blog,carrito,  agregar_producto, eliminar_producto,sumar_producto, limpiar_carrito, restar_producto,registrarse
+from tienda.views import product,index,contact,blog,carrito,  agregar_producto, eliminar_producto,sumar_producto, limpiar_carrito, restar_producto,registrarse,Checkout
 from tienda.views import productobodeguero,ordenesbodeguero
 from tienda.views import entregascontador,pagoscontador
 from tienda.views import productovendedor,pedidosvendedor,ordenesvendedor
@@ -44,6 +44,7 @@ urlpatterns = [
     path('restar/<int:producto_id>/', restar_producto, name="Sub"),
     path('sumar/<int:producto_id>/', sumar_producto,name="Sum"),
     path('limpiar/', limpiar_carrito, name="CLS"),
+    path('checkout/',Checkout,name="Checkout"),
     #vistas registro y autenticacion
     path('login',LoginView.as_view(template_name="Inicio/login.html"), name='login'),
     path('logout',LogoutView.as_view(template_name="Inicio/index.html"), name='logout'),
