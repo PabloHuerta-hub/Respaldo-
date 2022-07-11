@@ -1,8 +1,10 @@
+from urllib import response
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 import requests
 from tienda.forms import Clientes,Compras
+from tienda.models import informecompra
 from django.contrib.auth.models import Group
 # Create your views here.
 from producto.models import Producto
@@ -121,7 +123,7 @@ def product(request):
 
 def carrito(request):
     url = 'http://127.0.0.1:8000/api/productos/'
-    response = requests.get(url, auth = ('admin@gmail.com', '1234'))
+    response = requests.get(url, auth = ('admin@gmail.com', '123'))
     data = response.json()
     productos = {'productos': data}
     return render(request,'Inicio/carrito.html', productos)
@@ -156,8 +158,17 @@ def limpiar_carrito(request):
     carrito.limpiar()
     return redirect("carrito")
 
+def limpiar_compra(request):
+    carrito = Carrito(request)
+    carrito.limpiar()
+    return redirect("fincompra")
+
 def Checkout(request):
     template_name="Checkout.html"
+    return render(request,template_name)
+
+def FinCompra(request):
+    template_name="FinCompra.html"
     return render(request,template_name)
 
 def FormsPago(request):
@@ -170,3 +181,4 @@ def FormsPago(request):
     else:
         formulariopago=Compras()
     return render(request,"Inicio/FormularioPago.html",{'Pago':formulariopago})
+

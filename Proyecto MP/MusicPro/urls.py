@@ -20,7 +20,7 @@ from django.conf import settings
 from django.contrib.auth.views import LoginView, LogoutView
 from MusicPro.appApi import views
 from django.conf.urls.static import static
-from tienda.views import product,index,contact,blog,carrito,  agregar_producto, eliminar_producto,sumar_producto, limpiar_carrito, restar_producto,registrarse,FormsPago,Checkout
+from tienda.views import product,index,contact,blog,carrito,  agregar_producto, eliminar_producto,sumar_producto, limpiar_carrito, restar_producto,registrarse,FormsPago,Checkout, FinCompra,limpiar_compra
 from tienda.views import productobodeguero,ordenesbodeguero
 from tienda.views import entregascontador,pagoscontador
 from tienda.views import productovendedor,pedidosvendedor,ordenesvendedor
@@ -35,31 +35,33 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),#Autentificación de la API
     #vistas inicio
     path('',index, name='Index'),
-    path('contactanos',contact, name='Contactanos'),
-    path('blog',blog,name='Blog'),
-    path('productos',product,name='Product'),
-    path('carrito',carrito,name='carrito'),
-    path('pago',FormsPago,name='Pago'),
+    path('contactanos/',contact, name='Contactanos'),
+    path('blog/',blog,name='Blog'),
+    path('productos/',product,name='Product'),
+    path('carrito/',carrito,name='carrito'),
+    path('pago/',FormsPago,name='Pago'),
     path('agregar/<int:producto_id>/', agregar_producto, name="Add"),
     path('eliminar/<int:producto_id>/', eliminar_producto, name="Del"),
     path('restar/<int:producto_id>/', restar_producto, name="Sub"),
     path('sumar/<int:producto_id>/', sumar_producto,name="Sum"),
     path('limpiar/', limpiar_carrito, name="CLS"),
+    path('limpiarcompra/', limpiar_compra, name="limpiarcompra"),
     path('checkout/',Checkout,name="Checkout"),
+    path('FinCompra',FinCompra,name="fincompra"),
     #vistas registro y autenticacion
-    path('login',LoginView.as_view(template_name="Inicio/login.html"), name='login'),
-    path('logout',LogoutView.as_view(template_name="Inicio/index.html"), name='logout'),
-    path('registrarse',registrarse,name="Registrarse"),
+    path('login/',LoginView.as_view(template_name="Inicio/login.html"), name='login'),
+    path('logout/',LogoutView.as_view(template_name="Inicio/index.html"), name='logout'),
+    path('registrarse/',registrarse,name="Registrarse"),
     #vistas bodeguero
-    path('productobodega',productobodeguero,name="productobodega"),
-    path('ordenesbodeguero',ordenesbodeguero,name="ordenesbodeguero"),
+    path('productobodega/',productobodeguero,name="productobodega"),
+    path('ordenesbodeguero/',ordenesbodeguero,name="ordenesbodeguero"),
     #vistas contador
-    path('entregascontador', entregascontador, name="entregascontador"),
-    path('pagoscontador', pagoscontador, name="pagoscontador"),
+    path('entregascontador/', entregascontador, name="entregascontador"),
+    path('pagoscontador/', pagoscontador, name="pagoscontador"),
     #vistas vendedor
-    path('productovendedor',productovendedor,name="productovendedor"),
-    path('pedidosvendedor',pedidosvendedor,name="pedidosvendedor"),
-    path('ordenesvendedor',ordenesvendedor,name="ordenesvendedor")
+    path('productovendedor/',productovendedor,name="productovendedor"),
+    path('pedidosvendedor/',pedidosvendedor,name="pedidosvendedor"),
+    path('ordenesvendedor/',ordenesvendedor,name="ordenesvendedor")
     
 
 

@@ -26,10 +26,22 @@
   <link href="{% static 'css/responsive.css'%}" rel="stylesheet" />
 </head>
 <body class="sub_page">
+            <!-- header section strats -->
+            <header class="header_section">
+              <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg custom_nav-container">
+                  <a class="navbar-brand" href="{% url 'Index'%}">
+                    <span style="color:black">
+                      MusicPro
+                    </span>
+                  </a>
+                </div>
+            </header>
+<div class="container" style="text-align: center ;margin-top:100px">
+  <p style="color:black;  text-align: center; font-size: 25px;font-weight: bold; margin-bottom: 40px;">Selecciona tu metodo de pago <br/>
   <!-- product section -->
 <!-- Se crea un script de js para llamar al sdk de paypal, luego se coloca el la key del cliente junto con su divisa -->
 <script src="https://www.paypal.com/sdk/js?client-id=AVZupC86YnGnWrTCqh2EmzL1Ll18cx4sNkVkewSVSISj4kmT6XttDALrPMOhDoT09F-zFpOCgfn1RB9K&currency=USD"></script>
-<div class="container" style="justify-content: center; margin-top: 250px;">
 <div id="paypal-button-container"></div>
 </div>
 <!-- Se crea un script para los botones de paypal y crear la orden -->
@@ -51,11 +63,11 @@
     // Finaliza la transaccion una vez se aprueba el pago
     // en onapprove captura los datos
     onApprove: (data, actions) => {
-      document.location.href ="{% url 'CLS' %}";
+      //document.location.href ="{% url 'CLS' %}";
       return actions.order.capture().then(function(orderData) {
         const transaction = orderData.purchase_units[0].payments.captures[0];
         alert("Compra realizada con exito");
-        document.location.href="{% url 'Index' %}";
+        document.location.href="{% url 'limpiarcompra' %}";
       });
 
     }
