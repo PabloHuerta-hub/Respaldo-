@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 import requests
-from tienda.forms import RegistroUsuarios,Clientes
+from tienda.forms import Clientes,Compras
 from django.contrib.auth.models import Group
 # Create your views here.
 from producto.models import Producto
@@ -159,3 +159,14 @@ def limpiar_carrito(request):
 def Checkout(request):
     template_name="Checkout.html"
     return render(request,template_name)
+
+def FormsPago(request):
+    if request.method == "POST":
+        formulariopago=Compras(request.POST)
+        if formulariopago.is_valid():
+            post=formulariopago.save(commit=False)
+            post.save()
+            return redirect("Checkout")
+    else:
+        formulariopago=Compras()
+    return render(request,"Inicio/FormularioPago.html",{'Pago':formulariopago})

@@ -1,4 +1,4 @@
-from tienda.models import Usuarios
+from tienda.models import Usuarios, informecompra,sedes
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 
@@ -10,7 +10,6 @@ class RegistroUsuarios(UserCreationForm):
         
         
 class Clientes(UserCreationForm):
-    email=forms.EmailField(max_length=60)
     class Meta:
         model = Usuarios
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2','Comuna','Calle','cellphone' )
@@ -55,16 +54,16 @@ class Clientes(UserCreationForm):
             ),
             'password1':forms.TextInput(
                 attrs={
-                     'class': 'form-control',
+                    'class': 'form-control',
                     'placeholder':'Ingrese su contraseña',
-                    'id':'pass1'
+                    'id':'contraseña'
                 }
             ),
             'password2':forms.TextInput(
                 attrs={
                     'class': 'form-control',
                     'placeholder':'Confirme su contraseña',
-                    'id':'pass2'
+                    'id':'contraseña2'
                 }
             ),
             'Comuna':forms.TextInput(
@@ -88,3 +87,64 @@ class Clientes(UserCreationForm):
                     'id':'telefono'
                 }
             )}
+
+class Compras(forms.ModelForm):
+
+    class Meta:
+        
+        model=informecompra        
+        fields=['Nombres','Apellidos','Rut','Comuna','Calle','Sede','Opcional','Telefono']
+        labels={
+            'Nombres':'Nombres',
+            'Apellidos':'Apellidos',
+            'Rut':'Rut',
+            'Comuna':'Comuna',
+            'Calle':'Calle',
+            'Sede':'Sede',
+            'Opcional':'Opcional',
+            'Telefono':'Telefono',
+        }
+        widgets={
+            'Nombres':forms.TextInput(
+            attrs={'class':'form-control', 
+                   'placeholder':'Ingrese sus dos nombres',
+                   'id':'nombres'}
+            ),
+            'Apellidos':forms.TextInput(
+                attrs={'class':'form-control', 
+                   'placeholder':'Ingrese sus dos apellidos',
+                   'id':'apellidos'}
+            ),
+            'Rut': forms.TextInput(
+                attrs={'class':'form-control', 
+                   'placeholder':'Ingrese su rut',
+                   'id':'rut'}
+            ),
+            'Comuna':forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder':'Ingrese su comuna',
+                    'id':'comuna'
+                    }),
+            'Calle':forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder':'Ingrese su calle',
+                    'id':'calle'
+                }
+            ),
+            'Opcional':forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder':'Ingrese datos extras',
+                    'id':'opcional'
+                }
+            ),
+            'Telefono':forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder':'Ingrese su telefono',
+                    'id':'telefono'
+                }
+            ),
+        }
