@@ -182,3 +182,4 @@ def FormsPago(request):
         formulariopago=Compras()
     return render(request,"Inicio/FormularioPago.html",{'Pago':formulariopago})
 
+
