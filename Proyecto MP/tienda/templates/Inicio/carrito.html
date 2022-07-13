@@ -28,7 +28,7 @@
   <body class="sub_page">
     {% include "Baseheader.html" %}
     {%if request.user.is_authenticated%} 
-      <p style="color:black;  text-align: center; font-size: 25px;font-weight: bold;">Bienvenido {{request.user.username}}<br/>
+      <p style="color:black;  text-align: center; font-size: 25px;font-weight: bold;">Bienvenido/a {{request.user.username}}<br/>
     {%else%}
       <p style="color:black;  text-align: center; font-size: 25px;font-weight: bold;">Inicia sesión o regístrate para obtener beneficios <br/>
     {%endif%}
@@ -94,7 +94,7 @@
   <div class="container">
     <div class="info_social-container">
       <h5>
-        Siguenos
+        Síguenos
       </h5>
       <div class="info_social">
         <div>
@@ -150,11 +150,11 @@
         <div class="info_link-box">
           <a href="">
             <img src="{% static 'images/location-white.png'%}" alt="">
-            <span> No.243,Calle alferez real </span>
+            <span> Calle Alferez Real #243 </span>
           </a>
           <a href="">
             <img src="{% static 'images/call-white.png'%}" alt="">
-            <span>+56 53214856</span>
+            <span>569248556789</span>
           </a>
           <a href="">
             <img src="{% static 'images/mail-white.png'%}" alt="">

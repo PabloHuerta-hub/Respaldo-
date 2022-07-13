@@ -45,6 +45,7 @@
 <div id="paypal-button-container"></div>
 </div>
 <!-- Se crea un script para los botones de paypal y crear la orden -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
   paypal.Buttons({
     // Crea la configuracion del pago una vez se presiona el boton
@@ -66,8 +67,19 @@
       //document.location.href ="{% url 'CLS' %}";
       return actions.order.capture().then(function(orderData) {
         const transaction = orderData.purchase_units[0].payments.captures[0];
-        alert("Compra realizada con exito");
-        document.location.href="{% url 'limpiarcompra' %}";
+        //alert("Compra realizada con exito");
+        //document.location.href="{% url 'limpiarcompra' %}";
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: '¡Pago realizado con éxito!',
+          text: "Muchas gracias por tu compra",
+          showConfirmButton: true,
+          denyButtontText: 'Continuar comprando',
+          //timer: 5000
+          }).then(() =>{
+            document.location.href="{% url 'limpiarcompra' %}";
+          })
       });
 
     }

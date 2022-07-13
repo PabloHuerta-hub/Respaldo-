@@ -44,7 +44,11 @@ def productobodeguero(request):
     if request.user.is_authenticated:
         for group in request.user.groups.all():
             if group.name == 'Bodeguero':
-                return render(request,'Bodeguero/productosbodeguero.html')
+                url = 'http://127.0.0.1:8000/api/productos/' 
+                response = requests.get(url, auth = ('admin@gmail.com', '123'))
+                data = response.json()
+                productos = {'productos': data}
+                return render(request,'Bodeguero/productosbodeguero.html', productos)
             else:
                 return redirect('login')
     else:
@@ -161,14 +165,10 @@ def limpiar_carrito(request):
 def limpiar_compra(request):
     carrito = Carrito(request)
     carrito.limpiar()
-    return redirect("fincompra")
+    return redirect("Index")
 
 def Checkout(request):
     template_name="Checkout.html"
-    return render(request,template_name)
-
-def FinCompra(request):
-    template_name="FinCompra.html"
     return render(request,template_name)
 
 def FormsPago(request):

@@ -35,13 +35,48 @@
   {% include "Baseheader.html" %}
     {% block content %}
 
+    <section class="product_section layout_padding">
+      <div class="container">
+        <div class="heading_container" style="justify-content: center; margin-bottom: 30px">
+          <h2>
+            Productos
+          </h2>
+        </div>
+        <div class="product_container">
+          <table class="table table-bordered">
+            <thead>
+                <tr>
+                  <th scope="col">Código</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Marca</th>
+                  <th scope="col">Categoría</th>
+                  <th scope="col">Nro. serie</th>
+                  <th scope="col">Precio</th>  
+                </tr>
+            </thead>
+            <tbody>
+                {% for productos in productos %}
+                    <tr>
+                      <td>{{ productos.codigo }}</td>
+                      <td>{{ productos.nombre }}</td>
+                      <td>{{ productos.marca }}</td>
+                      <td>{{ productos.categoria }}</td>
+                      <td>{{ productos.serie_producto }}</td>
+                      <td>${{ productos.precio }}</td>
+                    </tr>
+                {%endfor%}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
   <!-- info section -->
 
   <section class="info_section layout_padding">
     <div class="container">
       <div class="info_social-container">
         <h5>
-          Siguenos
+          Síguenos
         </h5>
         <div class="info_social">
           <div>

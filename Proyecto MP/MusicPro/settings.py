@@ -68,7 +68,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'producto.context_processor.total_carrito',
                 'producto.context_processor.cantidad_carrito',
-                #'producto.context_processor_dolar.total_carrito'
+                'producto.context_processor_dolar.total_carrito'
             ],
         },
     },

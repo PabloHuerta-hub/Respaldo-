@@ -21,7 +21,7 @@ class TestMensajeinvitado():
   def test_mensajeinvitado(self):
     self.driver.get("http://127.0.0.1:8000/")
     self.driver.set_window_size(1440, 774)
-    self.driver.find_element(By.CSS_SELECTOR, ".bi").click()
+    self.driver.find_element(By.CSS_SELECTOR, "h5:nth-child(2)").click()
     assert self.driver.find_element(By.CSS_SELECTOR, "p:nth-child(5)").text == "Inicia sesión o regístrate para obtener beneficios"
     self.driver.find_element(By.CSS_SELECTOR, ".navbar-brand > span").click()
   

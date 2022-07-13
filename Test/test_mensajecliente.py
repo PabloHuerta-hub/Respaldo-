@@ -20,16 +20,16 @@ class TestMensajecliente():
   
   def test_mensajecliente(self):
     self.driver.get("http://127.0.0.1:8000/")
-    self.driver.set_window_size(1920, 1032)
-    self.driver.find_element(By.CSS_SELECTOR, ".s-2").click()
+    self.driver.set_window_size(1440, 774)
+    self.driver.find_element(By.CSS_SELECTOR, "button").click()
     self.driver.find_element(By.CSS_SELECTOR, "a:nth-child(6)").click()
     self.driver.find_element(By.NAME, "username").click()
-    self.driver.find_element(By.NAME, "username").send_keys("basthian@gmail.com")
+    self.driver.find_element(By.NAME, "username").send_keys("basth.rojasv@duocuc.cl")
     self.driver.find_element(By.NAME, "password").click()
     self.driver.find_element(By.NAME, "password").send_keys("pelicanoprueba")
-    self.driver.find_element(By.CSS_SELECTOR, ".d-flex > button").click()
+    self.driver.find_element(By.CSS_SELECTOR, "button:nth-child(2)").click()
     self.driver.find_element(By.CSS_SELECTOR, ".bi").click()
-    assert self.driver.find_element(By.CSS_SELECTOR, "p:nth-child(5)").text == "Bienvenido"
+    assert self.driver.find_element(By.CSS_SELECTOR, "p:nth-child(5)").text == "Bienvenido/a basth.rojasv"
     self.driver.find_element(By.CSS_SELECTOR, "button").click()
     self.driver.find_element(By.CSS_SELECTOR, "a:nth-child(5)").click()
   
